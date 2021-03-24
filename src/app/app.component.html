@@ -1,0 +1,24 @@
+<hello name="{{ name }}"></hello>
+<input type="text" value="$1" [ngModel]="name" (ngModelChange)="name = $event" />
+<ul>
+  <ng-container *ngIf="users.length > 0; else noUser">
+    <li *ngFor="let item of users; first as isFirst; last as isLast" [class]="{'bot': isLast, 'first': isFirst }">
+      {{item.id}}-{{item.name}}-{{item.phone}}
+    </li>
+  </ng-container>
+  <ng-template #noUser>
+    No User
+  </ng-template>
+</ul>
+
+<button (click)="curenProgess = curenProgess + 1 ">curenProgess</button>
+<p></p>
+
+<progress-bar></progress-bar>
+<br />
+<progress-bar [progress]="60" [progressColor]="'blue'"></progress-bar>
+<br />
+<progress-bar [progress]="curenProgess" [progressColor]="'blue'"></progress-bar>
+<br />
+
+<author-list></author-list>
